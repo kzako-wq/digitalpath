@@ -18,7 +18,9 @@
 
   <a-scene
     background="color: black"
-    fog="type: exponential; color: #020204; density: 0.09">
+    fog="type: exponential; color: #020204; density: 0.09"
+    vr-mode-ui="enabled: true"
+    webxr="optionalFeatures: local-floor">
 
     <!-- =========================
          ASSETS
@@ -42,6 +44,36 @@
       </a-asset-item>
 
     </a-assets>
+
+
+
+
+
+    <!-- =========================
+         PLAYER / VR CONTROLS
+    ========================== -->
+
+    <a-entity
+      id="rig"
+      position="0 1.6 0"
+      movement-controls="speed: 0.15">
+
+      <!-- Camera -->
+      <a-camera wasd-controls-enabled="false"></a-camera>
+
+      <!-- Left Controller -->
+      <a-entity
+        laser-controls="hand: left"
+        meta-touch-controls="hand: left">
+      </a-entity>
+
+      <!-- Right Controller -->
+      <a-entity
+        laser-controls="hand: right"
+        meta-touch-controls="hand: right">
+      </a-entity>
+
+    </a-entity>
 
 
 
