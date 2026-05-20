@@ -1,142 +1,163 @@
 <!DOCTYPE html>
 <html>
 
-
 <head>
   <meta charset="UTF-8">
+
+  <!-- A-Frame -->
   <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+
+  <!-- Particle System -->
   <script src="https://cdn.jsdelivr.net/npm/@c-frame/aframe-particle-system-component@1.2.0/dist/aframe-particle-system-component.min.js"></script>
+
+  <!-- A-Frame Extras -->
+  <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.5.4/dist/aframe-extras.min.js"></script>
 </head>
-
-
 
 <body>
 
+  <a-scene
+    background="color: black"
+    fog="type: exponential; color: #020204; density: 0.09">
 
-<a-scene
-  background="color: black"
-  fog="type: exponential; color: #020204; density: 0.09">
+    <!-- =========================
+         ASSETS
+    ========================== -->
 
+    <a-assets>
 
+      <a-asset-item
+        id="sken"
+        src="assets/cesta4.glb">
+      </a-asset-item>
 
+      <a-asset-item
+        id="sken1"
+        src="assets/travaplocha.glb">
+      </a-asset-item>
 
- 
-  <a-light type="ambient" intensity="0.4"></a-light>
+      <a-asset-item
+        id="sken2"
+        src="assets/forestpath2.glb">
+      </a-asset-item>
 
-
-
-
-  <a-light
-    id="mainLight"
-    type="point"
-    position="0 3 -60"
-    intensity="1.5"
-    color="#00ffff">
-  </a-light>
-
-
-
-
- 
-
-<a-entity
-  position="0 1.5 -60"
-  sound="src: url(sounds/backgroundnoise.wav);
-         autoplay: true;
-         loop: true;
-         positional: true;
-         maxDistance: 50;
-         refDistance: 2;
-         rolloffFactor: 1">
-</a-entity>
-
-
-
-
-  <a-assets>
-    <a-asset-item id="sken" src="assets/cesta4.glb"></a-asset-item>
-
-
-      <a-asset-item id="sken1" src="assets/travaplocha.glb"> </a-asset-item>
-
-   
-     <a-asset-item id="sken2" src="assets/forestpath2.glb"></a-asset-item>
-
-
-
-  </a-assets>
-
-
-
-
-   
- 
- 
-<a-entity gltf-model="#sken" position="2 4.5 -85" scale="1 1 1" rotation="10 0 0"></a-entity>
-
-
-<a-entity gltf-model="#sken1" position="-1 4 0"scale="1 1 1" rotation="0 0 0"></a-entity>
-
-
-<a-entity gltf-model="#sken2" position="6 0 5"scale="1 1 1" rotation="0 15 0"></a-entity>
-
-
-
-  <a-light
-    type="ambient"
-    intensity="10"
-    color="#8899aa">
-  </a-light>
-
-
-  <a-light
-    id="mainLight"
-    type="point"
-    position="0 3 -60"
-    intensity="10"
-    distance="35"
-    decay="1.5"
-    color="#88ffff">
-  </a-light>
-
- 
-  <a-light
-    type="spot"
-    position="0 5 -45"
-    angle="35"
-    penumbra="0.6"
-    intensity="10"
-    color="#66ffff"
-    target="#tunnelTarget">
-  </a-light>
-
-  
-  <a-entity
-    id="tunnelTarget"
-    position="0 1 -80">
-  </a-entity>
-
-
-  <a-light
-    type="point"
-    position="0 2 -120"
-    intensity="10"
-    distance="25"
-    color="#220044">
-  </a-light>
-
-
-
-
-</a-scene>
+    </a-assets>
 
 
 
 
 
+    <!-- =========================
+         AUDIO
+    ========================== -->
+
+    <a-entity
+      position="0 1.5 -60"
+      sound="
+        src: url(sounds/backgroundnoise.wav);
+        autoplay: true;
+        loop: true;
+        positional: true;
+        maxDistance: 50;
+        refDistance: 2;
+        rolloffFactor: 1">
+    </a-entity>
+
+
+
+
+
+    <!-- =========================
+         MODELS
+    ========================== -->
+
+    <a-entity
+      gltf-model="#sken"
+      position="-2 4 -93"
+      scale="1 1 1"
+      rotation="10 0 0">
+    </a-entity>
+
+    <a-entity
+      gltf-model="#sken1"
+      position="0 4 -2"
+      scale="1 1 1"
+      rotation="0 0 0">
+    </a-entity>
+
+    <a-entity
+      gltf-model="#sken2"
+      position="3 0 -5"
+      scale="1 1 1"
+      rotation="0 15 0">
+    </a-entity>
+
+
+
+
+
+    <!-- =========================
+         LIGHTS
+    ========================== -->
+
+    <!-- Ambient Light -->
+    <a-light
+      type="ambient"
+      intensity="0.4">
+    </a-light>
+
+    <a-light
+      type="ambient"
+      intensity="10"
+      color="#8899aa">
+    </a-light>
+
+    <!-- Main Point Lights -->
+    <a-light
+      id="mainLight"
+      type="point"
+      position="0 3 -60"
+      intensity="1.5"
+      color="#00ffff">
+    </a-light>
+
+    <a-light
+      id="mainLight2"
+      type="point"
+      position="0 3 -60"
+      intensity="10"
+      distance="35"
+      decay="1.5"
+      color="#88ffff">
+    </a-light>
+
+    <!-- Spotlight -->
+    <a-light
+      type="spot"
+      position="0 5 -45"
+      angle="35"
+      penumbra="0.6"
+      intensity="10"
+      color="#66ffff"
+      target="#tunnelTarget">
+    </a-light>
+
+    <!-- Spotlight Target -->
+    <a-entity
+      id="tunnelTarget"
+      position="0 1 -80">
+    </a-entity>
+
+    <!-- Background Point Light -->
+    <a-light
+      type="point"
+      position="0 2 -120"
+      intensity="10"
+      distance="25"
+      color="#220044">
+    </a-light>
+
+  </a-scene>
 
 </body>
 </html>
-
-
-
