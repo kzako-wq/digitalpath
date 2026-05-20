@@ -16,11 +16,12 @@
 
 <body>
 
-  <a-scene
-    background="color: black"
-    fog="type: exponential; color: #020204; density: 0.09"
-    vr-mode-ui="enabled: true"
-    webxr="optionalFeatures: local-floor">
+<a-scene
+  background="color: black"
+  fog="type: exponential; color: #020204; density: 0.09"
+  vr-mode-ui="enabled: true"
+  webxr="optionalFeatures: local-floor"
+  renderer="antialias: false; colorManagement: true">
 
     <!-- =========================
          ASSETS
@@ -30,7 +31,7 @@
 
       <a-asset-item
         id="sken"
-        src="assets/cesta4.glb">
+        src="assets/cesta6.glb">
       </a-asset-item>
 
       <a-asset-item
@@ -105,7 +106,7 @@
 
     <a-entity
       gltf-model="#sken"
-      position="-2 4 -93"
+      position="-2 0 -93"
       scale="1 1 1"
       rotation="10 0 0">
     </a-entity>
